@@ -12,6 +12,7 @@
     "beautiful-react-hooks": "^0.23.1",
     "craco-antd": "^1.14.1",
     "husky": "^4.2.3",
+    "i18next": "^19.3.4",
     "lint-staged": "^10.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -62,6 +63,10 @@
   "devDependencies": {
     "autoprefixer": "^9.7.5",
     "gh-pages": "^2.2.0",
-    "postcss-cli": "^7.1.0"
+    "postcss-cli": "^7.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0"
   }
 }

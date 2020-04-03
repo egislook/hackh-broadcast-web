@@ -6,11 +6,12 @@ import { Route, Redirect, Switch, BrowserRouter } from 'react-router-dom';
 
 import { routes, redirects } from './utils/routes';
 import './App.css';
-const Redirects = ({ redirectList }) => redirectList.map(redirect => (
+
+const Redirects = ({ redirectList }) => redirectList.map((redirect) => (
   <Redirect from={redirect.from.toString()} to={redirect.to.toString()} exact={redirect.exact} key={v4()} />
 ));
 
-const App = ({ store, }) => (
+const App = ({ store }) => (
   <BrowserRouter>
     <Provider store={store}>
       <Switch>

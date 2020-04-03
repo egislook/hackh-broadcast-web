@@ -1,19 +1,18 @@
-import React from 'react'
-import { Button } from 'antd';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Home = () => {
+  const { t } = useTranslation();
   return (
     <div className="App">
       <header className="App-header text-gray-900">
         <p>
           Covid-19 Broadcast!
         </p>
-        <p className="text-2xl">Hello world!</p>
-        <Button type="primary">Button</Button>
-
+        <p>{t('Welcome to React')}</p>
       </header>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
