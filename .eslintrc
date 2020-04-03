@@ -1,0 +1,90 @@
+{
+  "rules": {
+    "react/jsx-props-no-spreading": 0,
+    "react/prop-types": 0,
+    "no-use-before-define": [
+      "error",
+      {
+        "functions": false,
+        "classes": false,
+        "variables": false
+      }
+    ],
+    "linebreak-style": [
+      1,
+      "unix"
+    ],
+    "react/display-name": [
+      0,
+      {
+        "ignoreTranspilerName": false
+      }
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
+    "react/sort-comp": [
+      0,
+      {
+        "order": [
+          "type-annotations",
+          "static-methods",
+          "lifecycle",
+          "/^on.+$/",
+          "/^(get|set)(?!(InitialState$|DefaultProps$|ChildContext$)).+$/",
+          "everything-else",
+          "/^render.+$/",
+          "render"
+        ]
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ],
+    "consistent-return": 0,
+    "array-callback-return": 0,
+    "no-return-assign": 0,
+    "max-len": 0,
+    "no-undef": 0,
+    "no-param-reassign": 0,
+    "object-curly-newline": [
+      "error",
+      {
+        "consistent": true
+      }
+    ],
+    "no-underscore-dangle": 0,
+    "prefer-destructuring": 0,
+    "comma-dangle": [
+      2,
+      {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "ignore"
+      }
+    ]
+  },
+  "globals": {
+    "User": true,
+    "Profile": true,
+    "Media": true,
+    "Session": true,
+    "Apartment": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "airbnb",
+    "plugin:react/recommended"
+  ]
+}

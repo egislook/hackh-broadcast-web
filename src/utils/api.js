@@ -1,33 +1,28 @@
-import { format } from 'date-fns'
-import axios from 'axios'
-
-const TOTAL_CONFIRMED_ENDPOINT = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv';
-const TOTAL_DEATH_ENDPOINT = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv';
-const TOTAL_RECOVERED_ENDPOINT = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv';
+import axios from 'axios';
 
 
-const DAILY_REPORTS = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports"
+const instance = axios.create({
+  baseURL: process.env.REACT_APP_API_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
 
 
-const fetchConfirmedCases = () => {
-  return axios.get(TOTAL_CONFIRMED_ENDPOINT);
-}
-
-const fetchDeathCases = () => {
-  return axios.get(TOTAL_DEATH_ENDPOINT);
-}
-
-const fetchRecoveredCases = () => {
-  return axios.get(TOTAL_RECOVERED_ENDPOINT);
-}
-
-const fetchDailyReport = (date = format(new Date(), 'MM-dd-yyyy')) => {
-  return axios.get(`${DAILY_REPORTS}/${date}.csv`);
-}
+const sendMessage = (options) => instance.post('/telegram', options);
+const fetchMessages = (options) => instance.get('/messages', options);
+const fetchUserInfo = (options) => instance.get('/me', options);
+const login = (options) => instance.post('/login', options);
+const logout = (options) => instance.post('/logout', options);
+const requestOtp = (options) => instance.post('/request-otp', options);
+const authenticateOtp = (options) => instance.post('/authenticate-otp', options);
 
 export default {
-  fetchConfirmedCases,
-  fetchDeathCases,
-  fetchRecoveredCases,
-  fetchDailyReport,
-}
+  sendMessage,
+  fetchMessages,
+  fetchUserInfo,
+  login,
+  logout,
+  requestOtp,
+  authenticateOtp,
+};

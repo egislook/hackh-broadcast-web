@@ -1,16 +1,21 @@
-import React from 'react'
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import SiderLayout from '../../components/Sider/SiderLayout';
 
 const Home = () => {
+  const { t } = useTranslation();
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Covid-19 Broadcast!
-        </p>
-        <p>Hello world!</p>
-      </header>
-    </div>
-  )
-}
+    <SiderLayout>
+      <div className="App bg-blue">
+        <header className="App-header text-gray-900">
+          <p>
+            Covid-19 Broadcast!
+          </p>
+          <p>{t('Welcome to React')}</p>
+        </header>
+      </div>
+    </SiderLayout>
+  );
+};
 
-export default Home
+export default Home;
