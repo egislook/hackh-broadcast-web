@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 const Home = () => {
@@ -12,7 +12,7 @@ const Home = () => {
         <p>{t('Welcome to React')}</p>
       </header>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

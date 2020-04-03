@@ -1,7 +1,8 @@
-import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
-import english from './english'
-import khmer from './khmer'
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import english from './english';
+import khmer from './khmer';
+
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
@@ -9,12 +10,12 @@ i18n
       en: english,
       km: khmer,
     },
-    lng: "en",
-    fallbackLng: "en",
+    lng: 'en',
+    fallbackLng: 'en',
 
     interpolation: {
-      escapeValue: false
-    }
+      escapeValue: false,
+    },
   });
 
 
