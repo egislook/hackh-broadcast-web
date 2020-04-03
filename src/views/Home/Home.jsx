@@ -1,18 +1,28 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import SiderLayout from '../../components/Sider/SiderLayout';
+import MessageForm from '../../components/MessageForm/MessageForm';
+import VirtualDevice from '../../components/VirtualDevice/VirtualDevice';
+import { SEND_MESSAGE_TELEGRAM, RESET_MESSAGE } from '../../redux/types/types';
 
 const Home = () => {
-  const { t } = useTranslation();
+  const [message, setMessage] = useState('');
+  const dispatch = useDispatch();
+
   return (
     <SiderLayout>
-      <div className="App bg-blue">
-        <header className="App-header text-gray-900">
-          <p>
-            Covid-19 Broadcast!
-          </p>
-          <p>{t('Welcome to React')}</p>
-        </header>
+      <div className="content flex flex-row h-full">
+        <MessageForm
+          className="flex-grow p-4"
+          messageProvider=""
+          onMessageChange={(e) => setMessage(e.target.value)}
+          message={message}
+          onSend={() => dispatch({ type: SEND_MESSAGE_TELEGRAM, payload: message })}
+          onCancel={() => dispatch({ type: RESET_MESSAGE })}
+        />
+        <VirtualDevice
+          className="flex-grow p-4"
+        />
       </div>
     </SiderLayout>
   );
