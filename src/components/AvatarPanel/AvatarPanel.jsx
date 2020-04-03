@@ -16,7 +16,7 @@ const UserMenu = ({ openKeys, onOpenChange }) => (
   </Menu>
 );
 const AvatarPanel = ({ image, name, className }) => (
-  <Popover content={<UserMenu openKeys={['123']} onOpenChange={console.log('test')} />} trigger="click">
+  <Popover content={<UserMenu openKeys={['123']} />} trigger="click">
     <div className={`flex flex-row avatar-info-panel items-center hover:bg-gray-800 cursor-pointer ${className}`}>
       <h4 className="text-white p-2 m-0">{name}</h4>
       <Avatar size="large" src={image} />
