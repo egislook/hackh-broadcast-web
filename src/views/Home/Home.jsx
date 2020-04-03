@@ -1,14 +1,34 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useCallback } from 'react';
+// import { useDispatch } from 'react-redux';
 import SiderLayout from '../../components/Sider/SiderLayout';
 import MessageForm from '../../components/MessageForm/MessageForm';
 import VirtualDevice from '../../components/VirtualDevice/VirtualDevice';
-import { SEND_MESSAGE_TELEGRAM, RESET_MESSAGE } from '../../redux/types/types';
+import API from '../../utils/api';
+
 
 const Home = () => {
   const [message, setMessage] = useState('');
-  const dispatch = useDispatch();
+  const [, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
+  const sendMessage = useCallback(async () => {
+    if (isLoading) {
+      return;
+    }
+    setIsLoading(true);
+    try {
+      const result = await API.sendMessage({ text: message });
+      console.log('save data for history?', result);
+      console.log('or trigger fetch messages');
+
+      setIsLoading(false);
+      setError(null);
+      setMessage('');
+    } catch (err) {
+      setError(err);
+      setIsLoading(false);
+    }
+  }, [isLoading, message]);
   return (
     <SiderLayout>
       <div className="content flex flex-row h-full">
@@ -17,8 +37,9 @@ const Home = () => {
           messageProvider=""
           onMessageChange={(e) => setMessage(e.target.value)}
           message={message}
-          onSend={() => dispatch({ type: SEND_MESSAGE_TELEGRAM, payload: message })}
-          onCancel={() => dispatch({ type: RESET_MESSAGE })}
+          onSend={sendMessage}
+          onCancel={() => setMessage('')}
+          disabled={isLoading}
         />
         <VirtualDevice
           className="flex-grow p-4"

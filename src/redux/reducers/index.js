@@ -1,12 +1,6 @@
 import { combineReducers } from 'redux';
-import totalConfirmed from './totalConfirmed';
-import totalDeaths from './totalDeaths';
-import totalRecovered from './totalRecovered';
-// import dailyReports from './dailyReports';
+import message from './message';
 
 export default combineReducers({
-  totalConfirmed,
-  totalDeaths,
-  totalRecovered,
-  // dailyReports,
-})
+  message,
+});

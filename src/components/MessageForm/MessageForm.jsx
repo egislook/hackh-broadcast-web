@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 const { TextArea } = Input;
 
-const MessageForm = ({ messageProvider = 'telegram', onMessageChange, message = '', onSend, onCancel, className }) => {
+const MessageForm = ({ messageProvider = 'telegram', onMessageChange, message = '', onSend, onCancel, className, disabled }) => {
   const { t } = useTranslation();
   return (
     <div style={{ height: '80%' }} className={`message-form flex flex-col ${className}`}>
@@ -17,10 +17,26 @@ const MessageForm = ({ messageProvider = 'telegram', onMessageChange, message = 
         autoSize={false}
         value={message}
         onChange={(e) => onMessageChange(e)}
+        disabled={disabled}
       />
       <div className="message-form__buttons flex flex-row items-center justify-end p-2 pr-0">
-        <Button className="m-2 text-blue-dark border-2 border-blue-dark rounded-md hover:text-white hover:bg-blue" onClick={onCancel}>{t('cancel_button')}</Button>
-        <Button className="m-2 mr-0 text-white border-2 border-blue-dark bg-blue-dark rounded-md hover:text-white hover:bg-blue" onClick={onSend} type="primary">{t('send_button')}</Button>
+        <Button
+          className="m-2 text-blue-dark border-2 border-blue-dark rounded-md hover:text-white hover:bg-blue"
+          onClick={onCancel}
+          disabled={disabled}
+        >
+          {t('cancel_button')}
+
+        </Button>
+        <Button
+          className="m-2 mr-0 text-white border-2 border-blue-dark bg-blue-dark rounded-md hover:text-white hover:bg-blue"
+          onClick={onSend}
+          type="primary"
+          disabled={disabled}
+        >
+          {t('send_button')}
+
+        </Button>
       </div>
     </div>
   );
