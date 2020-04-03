@@ -1,12 +1,19 @@
+/* eslint-disable */
 import React, { Component } from 'react';
 import { Layout, Breadcrumb } from 'antd';
 import SiderNavigation from "./Sider";
-const { Header, Content } = Layout;
+import Header from "../Header/Header";
+const { Content } = Layout;
 
 export default class SiderLayout extends Component {
-  state = {
-    collapsed: false,
-  };
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      collapsed: false,
+
+    }
+  }
 
   render() {
     return (
