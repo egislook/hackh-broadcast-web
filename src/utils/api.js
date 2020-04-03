@@ -1,14 +1,19 @@
 import axios from 'axios';
 
+const TOTAL_CONFIRMED_ENDPOINT = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv';
+
+
 const instance = axios.create({
-  baseURL: process.env.API_URL,
+  baseURL: process.env.REACT_APP_API_URL,
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
 
-const sendMessage = (options) => instance.post('/send', options);
+const fetchConfirmedCases = () => axios.get(TOTAL_CONFIRMED_ENDPOINT);
+
+const sendMessage = (options) => instance.post('/telegram', options);
 const fetchMessages = (options) => instance.get('/messages', options);
 const fetchUserInfo = (options) => instance.get('/me', options);
 const login = (options) => instance.post('/login', options);
