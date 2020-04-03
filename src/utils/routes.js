@@ -1,6 +1,6 @@
 // Misc routes
 import NotFound from '../components/NotFound/NotFound';
-import Home from '../views/Home/Home'
+import Home from '../views/Home/Home';
 // Register Routes
 
 // Application routes
