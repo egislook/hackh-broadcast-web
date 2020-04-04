@@ -3,7 +3,6 @@ import React, { useState, useCallback } from 'react';
 // import { useDispatch } from 'react-redux';
 import SiderLayout from '../../components/Sider/SiderLayout';
 import MessageForm from '../../components/MessageForm/MessageForm';
-import VirtualDevice from '../../components/VirtualDevice/VirtualDevice';
 import API from '../../utils/api';
 
 import SectionTab from "../index-sections/SectionTab.jsx";
