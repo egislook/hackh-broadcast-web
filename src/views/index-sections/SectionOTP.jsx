@@ -75,6 +75,7 @@ class SectionLogin extends Component {
               <Card className="card-register">
                 <h3 className="title mx-auto" style={{ fontSize: '1.825em', fontWeight: 'bold' }}>Please input your OTP</h3>
                 <Form className="register-form">
+                  <label>OTP</label>
                   <InputGroup className="form-group-no-border">
                     <InputGroupAddon addonType="prepend">
                       <InputGroupText>
