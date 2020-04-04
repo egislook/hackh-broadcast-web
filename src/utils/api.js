@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { auth } from 'firebase/app';
+import { getToken } from './helpers';
+
 
 const instance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
@@ -7,16 +9,11 @@ const instance = axios.create({
     'Content-Type': 'application/json',
   },
 });
-
 instance.interceptors.request.use((config) => {
-  try {
-    const { token } = JSON.parse(localStorage.getItem('state')).auth;
-    const idToken = token.token;
-    config.headers.Authorization = idToken ? `Bearer ${idToken}` : '';
-    return config;
-  } catch (error) {
-    console.log('error retriving token', error);
-  }
+  const token = getToken();
+  console.log('send with stoken', token);
+  config.headers.Authorization = `${token && `BEARER ${token}`}`;
+  return config;
 });
 
 
