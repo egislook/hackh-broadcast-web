@@ -17,7 +17,7 @@ import {
 // core components
 
 class SectionLogin extends Component {
-    return (){
+    render () {
         return (
             <>
                 <div
