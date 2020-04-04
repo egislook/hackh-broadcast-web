@@ -2,8 +2,8 @@ import React from 'react';
 import IndexNavbar from "../../components/Navbars/IndexNavbar.js";
 import DemoFooter from "../../components/Footers/DemoFooter.js";
 
-import SectionLogin from "../../views/index-sections/SectionLogin.js";
-import SectionDownload from "../../views/index-sections/SectionDownload.js";
+import SectionLogin from "../index-sections/SectionLogin.jsx";
+import SectionDownload from "../index-sections/SectionDownload.jsx";
 
 
 function Login() {
