@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+// eslint-disable-next-line import/no-named-as-default-member
 import SiderLayout from '../../components/Sider/SiderLayout';
 
 const Home = () => {

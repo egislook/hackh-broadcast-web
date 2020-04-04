@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import Icon from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
-
+import { Link } from "react-router-dom";
 const { Sider } = Layout;
 
 const { SubMenu } = Menu;
@@ -14,57 +14,62 @@ class SiderNavigation extends Component {
   render() {
     return (
       <Sider {...this.props}>
-        <div style={{ height: "32px", backgroundColor: "#037ef3", margin: "16px" }}>
-          <img src="./public/flag-cambodia.png" />
+        <div style={{ height: "80px", margin: "20px" }}>
+          <img src="/flag-cambodia.jpg" alt="image" style={{maxHeight:"100%", margin: "auto" }} />
         </div>
         <Menu
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={['1']}
-          defaultOpenKeys={['sub1']}
           style={{ height: '100%', borderRight: 0 }}
         >
           <SubMenu
-            key="sub1"
+            key="messages"
             title={
               <span>
-                <AppstoreOutlined />
-                subnav 1
+                <Icon component={() => (<img src="/mail.svg"/>)} />
+                Messages
               </span>
             }
           >
-            <Menu.Item key="1">option1</Menu.Item>
-            <Menu.Item key="2">option2</Menu.Item>
-            <Menu.Item key="3">option3</Menu.Item>
-            <Menu.Item key="4">option4</Menu.Item>
+            <Menu.Item key="outbox"><Link to="/outbox">Outbox</Link></Menu.Item>
+            <Menu.Item key="draft"><Link to="/drafts">Drafts</Link></Menu.Item>
           </SubMenu>
           <SubMenu
-            key="sub2"
+            key="messenger"
             title={
               <span>
-                <MailOutlined />
-                subnav 2
+                <Icon component={() => (<img src="/messenger.svg"/>)} />
+                Messenger
               </span>
             }
           >
-            <Menu.Item key="5">option5</Menu.Item>
-            <Menu.Item key="6">option6</Menu.Item>
-            <Menu.Item key="7">option7</Menu.Item>
-            <Menu.Item key="8">option8</Menu.Item>
+            <Menu.Item key="text-only"><Link to="/messenger-text">Text</Link></Menu.Item>
+            <Menu.Item key="text-with-button"><Link to="/messenger-text-button">Text + buttons</Link></Menu.Item>
+            <Menu.Item key="image-with-button"><Link to="/messenger-image-button">Image + buttons</Link></Menu.Item>
           </SubMenu>
           <SubMenu
-            key="sub3"
+            key="telegram"
             title={
               <span>
-                <SettingOutlined />
-                subnav 3
+                <Icon component={() => (<img src="/telegram.svg"/>)} />
+                Telegram
               </span>
             }
           >
-            <Menu.Item key="9">option9</Menu.Item>
-            <Menu.Item key="10">option10</Menu.Item>
-            <Menu.Item key="11">option11</Menu.Item>
-            <Menu.Item key="12">option12</Menu.Item>
+            <Menu.Item key="style-1"><Link to="/telegram-style-1">Style 1</Link></Menu.Item>
+            <Menu.Item key="style-2"><Link to="/telegram-style-2">Style 2</Link></Menu.Item>
+            <Menu.Item key="style-3"><Link to="/telegram-style-3">Style 3</Link></Menu.Item>
+          </SubMenu>
+          <SubMenu
+            key="sms"
+            title={
+              <span>
+                <Icon component={() => (<img src="/sms.svg"/>)} />
+                SMS
+              </span>
+            }
+          >
+            <Menu.Item key="sms-text"><Link to="/sms-text">Text</Link></Menu.Item>
           </SubMenu>
         </Menu>
       </Sider>
