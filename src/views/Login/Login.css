@@ -18,11 +18,12 @@
 
 .login-main {
   justify-content: center;
+  min-height: 250px;
   width: 360px;
 }
 
 .login-content {
-  background-color: #61dafb;
+  background-color: #037ef3;
   display: flex;
   justify-content: center;
   align-items: center;
