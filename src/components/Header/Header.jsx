@@ -9,7 +9,7 @@ import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
 
 const { confirm } = Modal;
 
-const showConfirm = (title) => {
+const showConfirm = (title, okText, cancelText) => {
   confirm({
     title,
     // content: 'Some descriptions',
@@ -19,6 +19,8 @@ const showConfirm = (title) => {
     onCancel() {
       console.log('Cancel');
     },
+    okText,
+    cancelText,
   });
 };
 
@@ -33,7 +35,7 @@ const Header = ({ image = '', name = 'John Doe' }) => {
       <LanguageSwitcher />
       <AvatarPanel image={image} name={name} className="px-2" />
       <Divider type="vertical" className="h-10" />
-      <PoweroffOutlined className="text-xl text-white px-2 cursor-pointer" onClick={() => showConfirm(t('logout_title'))} />
+      <PoweroffOutlined className="text-xl text-white px-2 cursor-pointer" onClick={() => showConfirm(t('logout_title'), t('ok'), t('cancel'))} />
     </AntHeader>
   );
 };
