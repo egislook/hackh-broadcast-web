@@ -70,7 +70,7 @@ class SectionLogin extends Component {
           <Row style={{ paddingTop: '30px' }}>
             <Col className="mx-auto" lg="4" md="6">
               <Card className="card-register">
-                <h3 className="title mx-auto">Welcome</h3>
+                <h3 className="title mx-auto" style={{ fontSize: '1.825em', fontWeight: 'bold'}}>Welcome</h3>
                 <Form className="register-form">
                   <label>Phone Number</label>
                   <InputGroup className="form-group-no-border">
