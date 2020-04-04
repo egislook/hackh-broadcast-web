@@ -6,7 +6,8 @@ import Home from '../views/Home/Home';
 
 // Application routes
 const routes = [
-  { path: '/', component: Login, exact: true },
+  { path: '/', component: Home, exact: true },
+  { path: '/login', component: Login, exact: true },
   { component: NotFound },
 ];
 
