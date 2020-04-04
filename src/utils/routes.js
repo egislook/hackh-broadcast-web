@@ -5,6 +5,7 @@ import "../assets/demo/demo.css";
 import NotFound from '../components/NotFound/NotFound';
 import Login from '../views/Login/Login';
 import OTP from '../views/OTP/OTP';
+import Outbox from '../views/Outbox/Outbox';
 import Home from '../views/Home/Home';
 // Register Routes
 
@@ -13,6 +14,7 @@ const routes = [
   { path: '/', component: Home, exact: true },
   { path: '/login', component: Login, exact: true },
   { path: '/otp', component: OTP, exact: true },
+  { path: '/outbox', component: Outbox, exact: true },
   { component: NotFound },
 ];
 
