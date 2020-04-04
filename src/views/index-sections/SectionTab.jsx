@@ -24,28 +24,29 @@ class SectionTab extends Component {
 
     render() {
         return (
-            <Row>
+            <div style={{ padding: 50 }}>
+                <Row>
                 <Col xs="6" sm="4" md="4">
                     <Nav tabs vertical pills>
                         <NavItem>
-                            <NavLink
+                            <Button
                                 className={classnames({active: this.state.activeTab === '1'})}
                                 onClick={() => {
                                     this.toggle('1');
                                 }}
                             >
                                 Tab1
-                            </NavLink>
+                            </Button>
                         </NavItem>
                         <NavItem>
-                            <NavLink
+                            <Button
                                 className={classnames({active: this.state.activeTab === '2'})}
                                 onClick={() => {
                                     this.toggle('2');
                                 }}
                             >
-                                Moar Tabs
-                            </NavLink>
+                                Tab 2
+                            </Button>
                         </NavItem>
                     </Nav>
                 </Col>
@@ -60,6 +61,7 @@ class SectionTab extends Component {
                     </TabContent>
                 </Col>
             </Row>
+            </div>
         )
     }
 }
