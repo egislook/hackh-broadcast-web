@@ -11,9 +11,13 @@ export default {
     'Style 2': 'លំនាំ ទី២',
     'Style 3': 'លំនាំ ទី៣',
     app_title: 'ប្រព័ន្ធផ្សព្វផ្សាយ COVID-19 នៃ​ព្រះ​រាជាណាចក្រ​កម្ពុជា',
-    logout_title: 'ចាកចេញពីកម្មវិធី?',
-    cancel_button: 'បោះបង់',
-    send_button: 'ផ្ញើសារ',
-    ok_button: 'យល់ព្រម'
+    logout_title: 'ចាកចេញពី ប្រព័ន្ធផ្សព្វផ្សាយ COVID-19?',
+    cancel: 'បោះបង់',
+    reset: 'លុបចោល',
+    send: 'ផ្ញើ',
+    ok: 'បាទ/ចាស',
+    'Something went wrong': 'ប្រព័ន្ធផ្សព្វផ្សាយ',
+    'Are you sure you want to send': 'ប្រព័ន្ធផ្សព្វផ្សាយ',
+    'send message': 'ផ្ញើសារទៅកាន់​ {{provider}}',
   },
 };
