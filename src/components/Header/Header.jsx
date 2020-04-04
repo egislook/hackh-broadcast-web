@@ -19,8 +19,8 @@ const showConfirm = (title, okText, cancelText) => {
     onCancel() {
       console.log('Cancel');
     },
-    okText: okText,
-    cancelText: cancelText,
+    okText,
+    cancelText,
   });
 };
 
@@ -35,7 +35,7 @@ const Header = ({ image = '', name = 'John Doe' }) => {
       <LanguageSwitcher />
       <AvatarPanel image={image} name={name} className="px-2" />
       <Divider type="vertical" className="h-10" />
-      <PoweroffOutlined className="text-xl text-white px-2 cursor-pointer" onClick={() => showConfirm(t('logout_title'), t('ok_button'), t('cancel_button'))} />
+      <PoweroffOutlined className="text-xl text-white px-2 cursor-pointer" onClick={() => showConfirm(t('logout_title'), t('ok'), t('cancel'))} />
     </AntHeader>
   );
 };
