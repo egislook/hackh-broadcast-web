@@ -3,7 +3,7 @@ import React, { useState, useCallback } from 'react';
 // import { useDispatch } from 'react-redux';
 import SiderLayout from '../../components/Sider/SiderLayout';
 import MessageForm from '../../components/MessageForm/MessageForm';
-import VirtualDevice from '../../components/VirtualDevice/VirtualDevice';
+import PhoneSimulator from '../../components/PhoneSimulator/phoneSimulator';
 import API from '../../utils/api';
 
 
@@ -11,6 +11,7 @@ const Home = () => {
   const [message, setMessage] = useState('');
   const [, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  console.log(message);
 
   const sendMessage = useCallback(async () => {
     if (isLoading) {
@@ -42,8 +43,9 @@ const Home = () => {
           onCancel={() => setMessage('')}
           disabled={isLoading}
         />
-        <VirtualDevice
+        <PhoneSimulator
           className="flex-grow p-4"
+          messages={message}
         />
       </div>
     </SiderLayout>
