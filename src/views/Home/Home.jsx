@@ -4,7 +4,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { Modal } from 'antd';
 import SiderLayout from '../../components/Sider/SiderLayout';
 import MessageForm from '../../components/MessageForm/MessageForm';
-import VirtualDevice from '../../components/VirtualDevice/VirtualDevice';
+import PhoneSimulator from '../../components/PhoneSimulator/phoneSimulator';
 import API from '../../utils/api';
 import localization from '../../localization';
 import { TELEGRAM, MESSENGER, SMS } from '../../utils/constants';
@@ -129,8 +129,9 @@ const Home = () => {
           disabled={isLoading}
           isSuccess={showSuccessAlert}
         />
-        <VirtualDevice
+        <PhoneSimulator
           className="flex-grow p-4"
+          messages={message}
         />
       </div>
     </SiderLayout>
