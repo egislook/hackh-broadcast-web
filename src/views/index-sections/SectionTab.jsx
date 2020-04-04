@@ -1,69 +1,83 @@
-import React, {Component} from "react";
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import React, {Component, useState, useCallback } from "react";
+import { TabContent, TabPane, Nav, NavItem, Button, Row, Col, Media} from 'reactstrap';
 import classnames from 'classnames';
+import './SectionTab.scss';
+import Icon from "@ant-design/icons";
 
 
-class SectionTab extends Component {
+const SectionTab = () => {
 
-    constructor(props) {
-        super(props);
+    const [activeTab, setActiveTab] = useState('1');
+    const [isLoading, setIsLoading] = useState(false);
 
-        this.toggle = this.toggle.bind(this);
-        this.state = {
-            activeTab: '1'
-        };
-    }
-
-    toggle(tab) {
-        if (this.state.activeTab !== tab) {
-            this.setState({
-                activeTab: tab
-            });
+    const toggle = (tab) => {
+        if (activeTab !== tab) {
+            setActiveTab(tab);
         }
-    }
+    };
 
-    render() {
-        return (
-            <div style={{ padding: 50 }}>
+    return (
+            <div className="main-section-tab">
                 <Row>
-                <Col xs="6" sm="4" md="4">
+                <Col xs="6" sm="4" md="4" className="section-cols">
                     <Nav tabs vertical pills>
                         <NavItem>
                             <Button
-                                className={classnames({active: this.state.activeTab === '1'})}
+                                className={classnames('toggleButton', {active: activeTab === '1'})}
                                 onClick={() => {
-                                    this.toggle('1');
+                                    toggle('1');
                                 }}
                             >
-                                Tab1
+                                <Row className="section-sub-row">
+                                    <Col lg="3" className="section-sub-col-left">
+                                        <span>
+                                            <Icon component={() => (<img src="/telegram.svg" alt="telegram" />)} />
+                                        </span>
+                                        <p className="section-sub-p">10:00</p>
+                                        <p className="section-sub-p">11-04-2020</p>
+                                    </Col>
+                                    <Col lg="9" className="section-sub-col-right">Column</Col>
+                                </Row>
                             </Button>
                         </NavItem>
                         <NavItem>
                             <Button
-                                className={classnames({active: this.state.activeTab === '2'})}
+                                className={classnames('toggleButton', {active: activeTab === '2'})}
                                 onClick={() => {
-                                    this.toggle('2');
+                                    toggle('2');
                                 }}
                             >
                                 Tab 2
                             </Button>
                         </NavItem>
+                        <NavItem>
+                            <Button
+                                className={classnames('toggleButton', {active: activeTab === '3'})}
+                                onClick={() => {
+                                    toggle('3');
+                                }}
+                            >
+                                Tab 3
+                            </Button>
+                        </NavItem>
                     </Nav>
                 </Col>
-                <Col xs="6" sm="6" md="6">
-                    <TabContent activeTab={this.state.activeTab}>
+                <Col xs="6" sm="6" md="6" className="section-cols section-cols-right">
+                    <TabContent activeTab={activeTab}>
                         <TabPane tabId="1">
                             <h4>Tab 1 Contents</h4>
                         </TabPane>
                         <TabPane tabId="2">
-                            <h4>Tab 2 Contents</h4>
+                            <h4>Lorem lkdsjfa;lskjdf</h4>
+                        </TabPane>
+                        <TabPane tabId="3">
+                            <h4>Tab 3 Contents</h4>
                         </TabPane>
                     </TabContent>
                 </Col>
             </Row>
             </div>
         )
-    }
 }
 
 export default SectionTab;
