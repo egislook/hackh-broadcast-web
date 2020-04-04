@@ -6,6 +6,9 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import configureStore from './redux/redux';
 import './localization';
+import './loader/auth/auth';
+import './loader/db/db';
+// TODO: Replace the following with your app's Firebase project configuration
 
 const store = configureStore();
 
