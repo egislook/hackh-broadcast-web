@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { auth } from 'firebase/app';
+import { getToken } from './helpers';
 
 const instance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
@@ -8,16 +9,19 @@ const instance = axios.create({
   },
 });
 
-instance.interceptors.request.use((config) => {
-  try {
-    const { token } = JSON.parse(localStorage.getItem('state')).auth;
-    const idToken = token.token;
-    config.headers.Authorization = idToken ? `Bearer ${idToken}` : '';
+
+instance.interceptors.request.use(
+  (config) => {
+    const token = getToken();
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
     return config;
-  } catch (error) {
-    console.log('error retriving token', error);
+  },
+  (error) => {
+    Promise.reject(error);
   }
-});
+);
 
 
 const sendMessage = (options) => instance.post('/telegram', options);
