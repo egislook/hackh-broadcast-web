@@ -1,14 +1,24 @@
-import React from 'react';
+import React, {Component} from 'react';
+import IndexNavbar from "../../components/Navbars/IndexNavbar.js";
+import DemoFooter from "../../components/Footers/DemoFooter.js";
 
-const Login = () => (
-  <div className="App">
-    <header className="App-header">
-      <p>
-        Covid-19 Login!
-      </p>
-      <p>Hello world!</p>
-    </header>
-  </div>
-);
+import SectionLogin from "../index-sections/SectionLogin.jsx";
+import SectionDownload from "../index-sections/SectionDownload.jsx";
+
+
+class Login extends Component {
+    render () {
+        return (
+            <>
+                <IndexNavbar />
+                <div className="main">
+                    <SectionLogin />
+                    <SectionDownload />
+                    <DemoFooter />
+                </div>
+            </>
+        );
+    }
+}
 
 export default Login;

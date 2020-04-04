@@ -1,4 +1,7 @@
-@import '~antd/dist/antd.css';
+@import "~antd/dist/antd.css";
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 .App {
   text-align: center;
@@ -26,4 +29,24 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* .ant-btn {
+  border: 2px solid #273c50;
+  border-radius: 0.375rem;
+} */
+
+.ant-btn {
+  @apply text-blue-dark border-2 border-blue-dark rounded-md;
+}
+
+.ant-btn:hover {
+  @apply text-white bg-blue;
+}
+
+.ant-btn-primary {
+  @apply text-white border-2 border-blue-dark bg-blue-dark rounded-md !important;
+}
+.ant-btn-primary:hover {
+  @apply text-white bg-blue !important;
 }
