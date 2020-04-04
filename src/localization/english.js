@@ -5,5 +5,6 @@ export default {
     logout_title: 'logout from system?',
     cancel_button: 'Cancel',
     send_button: 'Send',
+    ok_button: 'Ok',
   },
 };
