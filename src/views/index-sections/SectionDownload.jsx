@@ -31,7 +31,7 @@ class SectionDownload extends Component {
             <Container className="text-center">
               <Row>
                 <Col className="ml-auto mr-auto text-center" md="8">
-                  <h2 className="title">Do you like what you see?</h2>
+                  <h2 className="title" style={{ fontSize: '2.8em'}}>Do you like what you see?</h2>
                   <p className="description">
                     Cause if you do, it can be yours for Free. Hit the button below
                     and download it. Start a new project or give an old Bootstrap 4
@@ -41,7 +41,7 @@ class SectionDownload extends Component {
               </Row>
               <Row className="justify-content-md-center sharing-area text-center">
                 <Col className="text-center" lg="8" md="12">
-                  <h3>Thank you for supporting us!</h3>
+                  <h3 style={{ fontSize: '1.825em' }}>Thank you for supporting us!</h3>
                 </Col>
                 <Col className="text-center" lg="8" md="12">
                   <Button

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Provider } from 'react-redux';
+import { Provider, useSelector } from 'react-redux';
 import v4 from 'uuid/v4';
 // import Favicon from 'react-favicon';
 import { Route, Redirect, Switch, BrowserRouter } from 'react-router-dom';
@@ -10,16 +10,22 @@ import './App.css';
 const Redirects = ({ redirectList }) => redirectList.map((redirect) => (
   <Redirect from={redirect.from.toString()} to={redirect.to.toString()} exact={redirect.exact} key={v4()} />
 ));
+const PrivateRoute = (props) => {
+  const { path } = props;
 
+  return useSelector((state) => state.auth.token) ? <Route {...props} />
+    : <Redirect from={path} to="/login" />;
+};
 const App = ({ store }) => (
   <BrowserRouter>
     <Provider store={store}>
       <Switch>
         {
-          routes.map((route, index) => (
-            <Route key={index.toString()} {...route} store={store} />
-          ))
-        }
+            routes.map((route, index) => (
+              route.private ? <PrivateRoute key={index.toString()} {...route} store={store} />
+                : <Route key={index.toString()} {...route} store={store} />
+            ))
+          }
         <Redirects redirectList={redirects} />
       </Switch>
     </Provider>
