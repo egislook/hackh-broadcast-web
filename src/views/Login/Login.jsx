@@ -66,6 +66,9 @@ class Login extends Component {
 
   async authenticateOtp() {
     const { code, phone } = this.state;
+    this.setState({
+      isLoading: true,
+    });
     try {
       const result = await api.authenticateOtp(`+${phone}`, `${code}`);
       const { saveAuthToken, history } = this.props;
@@ -76,6 +79,7 @@ class Login extends Component {
     } catch (error) {
       console.log('error.response', error);
       this.setState({
+        isLoading: false,
         error: error.response.data,
       });
     }
@@ -182,7 +186,7 @@ class Login extends Component {
                             {t('login')}
                           </Button>
                           {
-                                        error && <Alert className="my-2" message={error.message} type="error" showIcon closable />
+                                        error && <Alert className="my-2" message={error.message} type="error" showIcon />
                                     }
                         </Form>
 
