@@ -1,5 +1,6 @@
+/* eslint-disable */
 import { database } from 'firebase/app';
-import moment from "moment";
+import moment from 'moment';
 
 export const fetchAllMessage = async () => {
   const databaseRef = database().ref('telegram');
@@ -8,8 +9,8 @@ export const fetchAllMessage = async () => {
     messageRef.on('value', (snapshot) => {
       const data = snapshot.val() || {};
       const messages = [];
-      snapshot.forEach(child => {
-        messages.push(child.val())
+      snapshot.forEach((child) => {
+        messages.push(child.val());
       });
       // it should trigger every time there are some changes happening
       return resolve(messages);
@@ -23,5 +24,5 @@ export const postMessage = async (options) => {
   messageRef.push({
     message: options.message,
     date: moment().format(),
-  })
+  });
 };
