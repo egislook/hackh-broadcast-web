@@ -16,87 +16,95 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React, {Component} from "react";
+import React, { Component } from 'react';
 
 // reactstrap components
-import { Button, Container, Row, Col, UncontrolledTooltip } from "reactstrap";
+import { Button, Container, Row, Col, UncontrolledTooltip } from 'reactstrap';
 
 // core components
 
 class SectionDownload extends Component {
   render() {
     return (
-        <>
-          <div className="section">
-            <Container className="text-center">
-              <Row>
-                <Col className="ml-auto mr-auto text-center" md="8">
-                  <h2 className="title" style={{ fontSize: '2.8em'}}>Do you like what you see?</h2>
-                  <p className="description">
-                    Cause if you do, it can be yours for Free. Hit the button below
-                    and download it. Start a new project or give an old Bootstrap 4
-                    project a new look.
-                  </p>
-                </Col>
-              </Row>
-              <Row className="justify-content-md-center sharing-area text-center">
-                <Col className="text-center" lg="8" md="12">
-                  <h3 style={{ fontSize: '1.825em' }}>Thank you for supporting us!</h3>
-                </Col>
-                <Col className="text-center" lg="8" md="12">
-                  <Button
-                      className="twitter-sharrre btn-round"
-                      color="twitter-bg"
-                      href="#pablo"
-                      id="tooltip3373767"
-                      onClick={e => e.preventDefault()}
-                  >
-                    <i className="fa fa-twitter" /> Twitter
-                  </Button>
-                  <UncontrolledTooltip delay={0} target="tooltip3373767">
-                    Tweet!
-                  </UncontrolledTooltip>
-                  <Button
-                      className="linkedin-sharrre btn-round  ml-2"
-                      color="google-bg"
-                      href="#pablo"
-                      id="tooltip840791273"
-                      onClick={e => e.preventDefault()}
-                  >
-                    <i className="fa fa-google-plus" /> Google
-                  </Button>
-                  <UncontrolledTooltip delay={0} target="tooltip840791273">
-                    Share!
-                  </UncontrolledTooltip>
-                  <Button
-                      className="facebook-sharrre btn-round ml-2"
-                      color="facebook-bg"
-                      href="#pablo"
-                      id="tooltip68961360"
-                      onClick={e => e.preventDefault()}
-                  >
-                    <i className="fa fa-facebook-square" /> Facebook
-                  </Button>
-                  <UncontrolledTooltip delay={0} target="tooltip68961360">
-                    Share!
-                  </UncontrolledTooltip>
-                  <Button
-                      className="sharrre btn-round ml-2"
-                      color="github-bg"
-                      href="https://github.com/creativetimofficial/paper-kit-react?ref=creativetim"
-                      target="_blank"
-                      id="tooltip864353654"
-                  >
-                    <i className="fa fa-github" /> Star
-                  </Button>
-                  <UncontrolledTooltip delay={0} target="tooltip864353654">
-                    Star on Github
-                  </UncontrolledTooltip>
-                </Col>
-              </Row>
-            </Container>
-          </div>
-        </>
+      <>
+        <div className="section">
+          <Container className="text-center">
+            <Row>
+              <Col className="ml-auto mr-auto text-center" md="8">
+                <h2 className="title" style={{ fontSize: '2.8em' }}>Do you like what you see?</h2>
+                <p className="description">
+                  Cause if you do, it can be yours for Free. Hit the button below
+                  and download it. Start a new project or give an old Bootstrap 4
+                  project a new look.
+                </p>
+              </Col>
+            </Row>
+            <Row className="justify-content-md-center sharing-area text-center">
+              <Col className="text-center" lg="8" md="12">
+                <h3 style={{ fontSize: '1.825em' }}>Thank you for supporting us!</h3>
+              </Col>
+              <Col className="text-center" lg="8" md="12">
+                <Button
+                  className="twitter-sharrre btn-round"
+                  color="twitter-bg"
+                  href="#pablo"
+                  id="tooltip3373767"
+                  onClick={(e) => e.preventDefault()}
+                >
+                  <i className="fa fa-twitter" />
+                  {' '}
+                  Twitter
+                </Button>
+                <UncontrolledTooltip delay={0} target="tooltip3373767">
+                  Tweet!
+                </UncontrolledTooltip>
+                <Button
+                  className="linkedin-sharrre btn-round  ml-2"
+                  color="google-bg"
+                  href="#pablo"
+                  id="tooltip840791273"
+                  onClick={(e) => e.preventDefault()}
+                >
+                  <i className="fa fa-google-plus" />
+                  {' '}
+                  Google
+                </Button>
+                <UncontrolledTooltip delay={0} target="tooltip840791273">
+                  Share!
+                </UncontrolledTooltip>
+                <Button
+                  className="facebook-sharrre btn-round ml-2"
+                  color="facebook-bg"
+                  href="#pablo"
+                  id="tooltip68961360"
+                  onClick={(e) => e.preventDefault()}
+                >
+                  <i className="fa fa-facebook-square" />
+                  {' '}
+                  Facebook
+                </Button>
+                <UncontrolledTooltip delay={0} target="tooltip68961360">
+                  Share!
+                </UncontrolledTooltip>
+                <Button
+                  className="sharrre btn-round ml-2"
+                  color="github-bg"
+                  href="https://github.com/creativetimofficial/paper-kit-react?ref=creativetim"
+                  target="_blank"
+                  id="tooltip864353654"
+                >
+                  <i className="fa fa-github" />
+                  {' '}
+                  Star
+                </Button>
+                <UncontrolledTooltip delay={0} target="tooltip864353654">
+                  Star on Github
+                </UncontrolledTooltip>
+              </Col>
+            </Row>
+          </Container>
+        </div>
+      </>
     );
   }
 }

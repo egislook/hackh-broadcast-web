@@ -22,8 +22,6 @@ export const postMessage = async (options) => {
   const result = await databaseRef.push({
     message: options.message,
     date: moment().format(),
-  }).then((snap) => {
-    return snap.key;
-  });
+  }).then((snap) => snap.key);
   return result;
 };

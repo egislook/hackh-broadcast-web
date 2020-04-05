@@ -1,4 +1,6 @@
 /* eslint-disable quote-props */
+import React from "react";
+
 export default {
   translation: {
     'Welcome to React': 'សូមស្វាគមន៍មកកាន់ React',
@@ -19,5 +21,6 @@ export default {
     'Something went wrong': 'ប្រព័ន្ធផ្សព្វផ្សាយ',
     'Are you sure you want to send': 'ប្រព័ន្ធផ្សព្វផ្សាយ',
     'send message': 'ផ្ញើសារទៅកាន់​ {{provider}}',
+    'text message': 'សារ'
   },
 };
