@@ -3,6 +3,7 @@ import { auth } from 'firebase/app';
 import { fetchAllMessage, postMessage } from '../loader/db/db';
 import { getToken } from './helpers';
 
+
 const instance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
   headers: {
