@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 
 import AvatarPanel from '../AvatarPanel/AvatarPanel';
 import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
+import api from '../../utils/api';
 
 const { confirm } = Modal;
 
@@ -13,8 +14,10 @@ const showConfirm = (title, okText, cancelText) => {
   confirm({
     title,
     // content: 'Some descriptions',
-    onOk() {
-      console.log('OK');
+    async onOk() {
+      await api.logout();
+      localStorage.clear();
+      window.location.href = '/';
     },
     onCancel() {
       console.log('Cancel');

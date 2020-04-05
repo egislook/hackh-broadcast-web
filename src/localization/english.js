@@ -25,5 +25,6 @@ export default {
     otp_placeholder: '6 digits code',
     send_code: 'Send Codes',
     login: 'Login',
+    text_message: 'Text Message',
   },
 };

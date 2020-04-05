@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { auth } from 'firebase/app';
-import { fetchAllMessage, postMessage } from  './../loader/db/db';
+import { fetchAllMessage, postMessage } from '../loader/db/db';
 import { getToken } from './helpers';
 
 const instance = axios.create({
