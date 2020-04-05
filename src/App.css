@@ -50,3 +50,10 @@
 .ant-btn-primary:hover {
   @apply text-white bg-blue !important;
 }
+
+.ant-btn-link {
+  @apply text-blue-lighter border-0 bg-transparent !important;
+}
+.ant-btn-link:hover {
+  @apply text-blue border-0 bg-transparent !important;
+}

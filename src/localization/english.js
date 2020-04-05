@@ -26,5 +26,8 @@ export default {
     send_code: 'Send Codes',
     login: 'Login',
     text_message: 'Text Message',
+    not_recieve_code: "Didn't recieve your OTP code?",
+    resend_otp: 'Resend OTP',
+    change_phone: 'Re-enter your phone number',
   },
 };

@@ -26,5 +26,8 @@ export default {
     send_code: 'ផ្ញើលេខសម្ងាត់',
     login: 'ចូលប្រើ',
     text_message: 'សារ',
+    not_recieve_code: 'មិនទទួលបានលេខសម្ងាត់​របស់អ្នក?',
+    resend_otp: 'ផ្ញើម្ដងទៀត',
+    change_phone: 'បញ្ជូលលេខទូរស័ព្ទម្តងទៀត',
   },
 };
