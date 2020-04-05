@@ -1,3 +1,5 @@
+import React from "react";
+
 export default {
   translation: {
     'Welcome to React': 'Welcome to React and react-i18next',
@@ -18,5 +20,6 @@ export default {
     'Something went wrong': 'Something went wrong!',
     'Are you sure you want to send': 'Are you sure you want to send this message?',
     'send message': 'Send message to {{provider}}',
+    'text message': 'Text Message',
   },
 };

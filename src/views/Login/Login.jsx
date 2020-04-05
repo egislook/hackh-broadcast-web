@@ -13,7 +13,7 @@ class Login extends Component {
                 <IndexNavbar />
                 <div className="main">
                     <SectionLogin />
-                    <SectionDownload />
+                    {/*<SectionDownload />*/}
                     <DemoFooter />
                 </div>
             </>
