@@ -6,7 +6,8 @@ import { withTranslation } from 'react-i18next';
 import { UserOutlined } from '@ant-design/icons';
 import api from '../../utils/api';
 import localization from '../../localization';
-import { savePhone as _savePhone } from '../../redux/actions/auth';
+import { savePhone as _savePhone, saveAuthToken as _saveAuthToken } from '../../redux/actions/auth';
+
 
 const showError = (err) => {
   Modal.error({
@@ -31,9 +32,11 @@ class Login extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.authenticateOtp = this.authenticateOtp.bind(this);
     this.handleOtpChange = this.handleOtpChange.bind(this);
+    this.validatePhone = this.validatePhone.bind(this);
   }
 
   async requestOtp() {
+    this.validatePhone();
     const { phone, phoneError } = this.state;
     if (phoneError) {
       showError(localization.t('invalid_phone'));
@@ -64,15 +67,14 @@ class Login extends Component {
   async authenticateOtp() {
     const { code, phone } = this.state;
     try {
-      const result = await api.authenticateOtp(`+${phone}`, code);
+      const result = await api.authenticateOtp(`+${phone}`, `${code}`);
       const { saveAuthToken, history } = this.props;
       await api.login(result.data.data.customToken);
       const token = await api.getIdTokenResult();
       saveAuthToken(token);
       history.push('/');
     } catch (error) {
-      console.log('error.response', error.response.data);
-
+      console.log('error.response', error);
       this.setState({
         error: error.response.data,
       });
@@ -85,16 +87,20 @@ class Login extends Component {
     });
   }
 
-  handleInputChange(value) {
-    const { phone } = this.state;
-    console.log('!value || value.length < 11', !value || value.length < 11);
-    console.log('phone', phone);
 
+  handleInputChange(value) {
     this.setState({
       phone: value ? `${value}` : '855',
-      phoneError: !phone || phone.length < 11,
     });
   }
+
+  validatePhone() {
+    const { phone } = this.state;
+    this.setState({
+      phoneError: !phone || phone.length < 10,
+    });
+  }
+
 
   render() {
     const { phone, isLoading, code, error, phoneError, codeSent } = this.state;
@@ -121,9 +127,9 @@ class Login extends Component {
                             className="py-1 w-full"
                             placeholder={t('phone_placeholder')}
                             name="phone"
-                            defaultValue="855"
                             maxLength="13"
                             value={phone}
+                            onBlur={this.validatePhone}
                             type="text"
                             onChange={this.handleInputChange}
                           />
@@ -137,10 +143,10 @@ class Login extends Component {
                             {t('send_code')}
                           </Button>
                           {
-                                    phoneError && <Alert className="my-2" message={t('invalid_phone')} type="warning" showIcon banner closable />
+                                    phoneError && <Alert className="my-2" message={t('invalid_phone')} type="warning" showIcon />
                                 }
                           {
-                                        error && <Alert className="my-2" message={error.message} type="warning" showIcon banner closable />
+                                        error && <Alert className="my-2" message={error.message} type="error" showIcon />
                                     }
                         </Form>
 
@@ -162,10 +168,8 @@ class Login extends Component {
                             className="py-1 w-full"
                             placeholder={t('otp_placeholder')}
                             name="code"
-                            defaultValue="855"
-                            maxLength="13"
+                            maxLength="6"
                             value={code}
-                            type="text"
                             onChange={this.handleOtpChange}
                           />
 
@@ -178,7 +182,7 @@ class Login extends Component {
                             {t('login')}
                           </Button>
                           {
-                                        error && <Alert className="my-2" message={error.message} type="error" showIcon banner closable />
+                                        error && <Alert className="my-2" message={error.message} type="error" showIcon closable />
                                     }
                         </Form>
 
@@ -194,6 +198,9 @@ const mapStateToProps = (state) => ({ auth: state.auth });
 const mapDispatchToProps = (dispatch) => ({
   savePhone: (phone) => {
     dispatch(_savePhone(phone));
+  },
+  saveAuthToken: (token) => {
+    dispatch(_saveAuthToken(token));
   },
 });
 export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(withRouter(Login)));
