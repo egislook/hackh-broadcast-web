@@ -57,7 +57,7 @@ const SectionTab = () => {
                     <Nav tabs vertical pills>
                         {(
                             allMessages.map((item, index) => (
-                                <NavItem>
+                                <NavItem className="section-nav-item">
                                     <Button
                                         className={classnames('toggleButton', {active: activeTab === index.toString()})}
                                         onClick={() => {
@@ -99,7 +99,7 @@ const SectionTab = () => {
                                             </Col>
                                         </Row>
                                         <hr className="my-2" style={{ borderColor: '#000', fontSize: "2px", borderTopWidth: '2px' }} />
-                                        <p className="section-sub-p">{item.message}</p>
+                                        <p className="section-sub-p section-sub-scroll">{item.message}</p>
                                     </div>
                                 </TabPane>
                             ))
