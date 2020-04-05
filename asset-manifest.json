@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/static/css/main.a39ba1a5.chunk.css",
-    "main.js": "/static/js/main.b1b4d02c.chunk.js",
-    "main.js.map": "/static/js/main.b1b4d02c.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.6c397ffb.js",
-    "runtime-main.js.map": "/static/js/runtime-main.6c397ffb.js.map",
-    "static/css/2.e2c829df.chunk.css": "/static/css/2.e2c829df.chunk.css",
-    "static/js/2.ab6de9d7.chunk.js": "/static/js/2.ab6de9d7.chunk.js",
-    "static/js/2.ab6de9d7.chunk.js.map": "/static/js/2.ab6de9d7.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.e8fbb4609f7892e8a06dfc29c0d64055.js": "/precache-manifest.e8fbb4609f7892e8a06dfc29c0d64055.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.e2c829df.chunk.css.map": "/static/css/2.e2c829df.chunk.css.map",
-    "static/css/main.a39ba1a5.chunk.css.map": "/static/css/main.a39ba1a5.chunk.css.map",
-    "static/js/2.ab6de9d7.chunk.js.LICENSE.txt": "/static/js/2.ab6de9d7.chunk.js.LICENSE.txt",
-    "static/media/device-mockups.min.css": "/static/media/portrait_white.f7b169ae.png",
-    "static/media/paper-kit.scss": "/static/media/nucleo-icons.f32ed5ad.eot"
+    "main.css": "/hackh-broadcast-web/static/css/main.98fdf1e7.chunk.css",
+    "main.js": "/hackh-broadcast-web/static/js/main.bf5d8d4e.chunk.js",
+    "main.js.map": "/hackh-broadcast-web/static/js/main.bf5d8d4e.chunk.js.map",
+    "runtime-main.js": "/hackh-broadcast-web/static/js/runtime-main.1726662b.js",
+    "runtime-main.js.map": "/hackh-broadcast-web/static/js/runtime-main.1726662b.js.map",
+    "static/css/2.62acfecf.chunk.css": "/hackh-broadcast-web/static/css/2.62acfecf.chunk.css",
+    "static/js/2.bc1c61de.chunk.js": "/hackh-broadcast-web/static/js/2.bc1c61de.chunk.js",
+    "static/js/2.bc1c61de.chunk.js.map": "/hackh-broadcast-web/static/js/2.bc1c61de.chunk.js.map",
+    "index.html": "/hackh-broadcast-web/index.html",
+    "precache-manifest.6d588c744c0c1a230443f0e9a6512536.js": "/hackh-broadcast-web/precache-manifest.6d588c744c0c1a230443f0e9a6512536.js",
+    "service-worker.js": "/hackh-broadcast-web/service-worker.js",
+    "static/css/2.62acfecf.chunk.css.map": "/hackh-broadcast-web/static/css/2.62acfecf.chunk.css.map",
+    "static/css/main.98fdf1e7.chunk.css.map": "/hackh-broadcast-web/static/css/main.98fdf1e7.chunk.css.map",
+    "static/js/2.bc1c61de.chunk.js.LICENSE.txt": "/hackh-broadcast-web/static/js/2.bc1c61de.chunk.js.LICENSE.txt",
+    "static/media/device-mockups.min.css": "/hackh-broadcast-web/static/media/portrait_white.f7b169ae.png",
+    "static/media/paper-kit.scss": "/hackh-broadcast-web/static/media/nucleo-icons.f32ed5ad.eot"
   },
   "entrypoints": [
-    "static/js/runtime-main.6c397ffb.js",
-    "static/css/2.e2c829df.chunk.css",
-    "static/js/2.ab6de9d7.chunk.js",
-    "static/css/main.a39ba1a5.chunk.css",
-    "static/js/main.b1b4d02c.chunk.js"
+    "static/js/runtime-main.1726662b.js",
+    "static/css/2.62acfecf.chunk.css",
+    "static/js/2.bc1c61de.chunk.js",
+    "static/css/main.98fdf1e7.chunk.css",
+    "static/js/main.bf5d8d4e.chunk.js"
   ]
 }
