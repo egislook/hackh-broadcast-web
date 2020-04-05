@@ -1,4 +1,4 @@
-/*eslint-disable*/
+/* eslint-disable */
 // var csv is the CSV file with headers
 export const csvToJSON = (csv) => {
   const result = csvToJs(csv);
@@ -33,7 +33,7 @@ export const csvToJs = (csv) => {
 
 export const getToken = () => {
   try {
-    const currentSession = JSON.parse(localStorage.getItem('state').auth.token.token);
+    const currentSession = JSON.parse(localStorage.getItem('state')).auth.token.token;
 
     if (!currentSession) {
       throw Error();

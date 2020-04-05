@@ -28,12 +28,11 @@ const MessageForm = ({ messenger, onMessageChange, message = '', onSend, onCance
           messageProviderIcon={messageProviderIcon}
         />
       </div>
-      <div className="characters-counter top-0 right-0 pt-2 flex justify-end">
-        {`${message.length}/${maxChar}`}
-      </div>
-      <div className="textarea-container flex-grow h-auto ">
+
+      <div className="textarea-container flex-grow h-auto relative">
         <TextArea
-          className="h-full w-full  p-4 border-2 border-solid border-blue-dark rounded-md"
+          autoSize
+          className="h-full w-full p-4 pt-6 border-2 border-solid border-blue-dark rounded-md"
           style={{ resize: 'none' }}
           value={message}
           maxLength={maxChar}
@@ -41,6 +40,9 @@ const MessageForm = ({ messenger, onMessageChange, message = '', onSend, onCance
           disabled={disabled}
           placeholder={t('send message', { provider: messageProviderLabel })}
         />
+        <div className="characters-counter top-0 right-0 mt-2 mr-2 absolute">
+          {`${message.length}/${maxChar}`}
+        </div>
       </div>
       <div className="message-form__buttons flex flex-row items-center justify-end p-2 pr-0">
         <Button
