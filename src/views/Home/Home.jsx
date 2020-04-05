@@ -104,6 +104,18 @@ const Home = () => {
     }
   }, [isLoading, message]);
 
+  /*const postMessage = useCallback(async () => {
+    try {
+      const data = await API.postNewMessage({message: 'Hello, Piseth!'});
+      setIsLoading(false);
+      setError(null);
+    } catch (err) {
+      setError(err);
+      error(err);
+      setIsLoading(false);
+    }
+  }, []);*/
+
   const cancelSend = useCallback(() => {
     setIsLoading(false);
     setIsLoading(false);

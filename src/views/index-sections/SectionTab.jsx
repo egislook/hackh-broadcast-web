@@ -1,67 +1,113 @@
-import React, {Component} from "react";
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import React, {Component, useState, useCallback, useEffect } from "react";
+import { TabContent, TabPane, Nav, NavItem, Button, Row, Col, Media} from 'reactstrap';
 import classnames from 'classnames';
+import moment from "moment";
+import API from '../../utils/api';
+import './SectionTab.scss';
+import Icon from "@ant-design/icons";
+import {Modal} from "antd";
+import localization from "../../localization";
 
 
-class SectionTab extends Component {
+const error = (err) => {
+    Modal.error({
+        title: localization.t('Something went wrong'),
+        content: err.message,
+        className: 'border-2 border-blue-dark rounded-md p-0',
+        okText: localization.t('ok'),
+    });
+};
 
-    constructor(props) {
-        super(props);
+const SectionTab = () => {
 
-        this.toggle = this.toggle.bind(this);
-        this.state = {
-            activeTab: '1'
-        };
-    }
+    const [allMessages, setAllMessage] = useState([]);
+    const [, setError] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
+    const [activeTab, setActiveTab] = useState('1');
 
-    toggle(tab) {
-        if (this.state.activeTab !== tab) {
-            this.setState({
-                activeTab: tab
-            });
+    useEffect( () => {
+        fetchData();
+    }, []);
+
+    const fetchData = useCallback(async () => {
+        try {
+            const data = await API.fetchAllMessages();
+            setIsLoading(false);
+            setError(null);
+            setAllMessage(data);
+
+        } catch (err) {
+            setError(err);
+            error(err);
+            setIsLoading(false);
         }
-    }
+    },  [isLoading, allMessages]);
 
-    render() {
-        return (
-            <Row>
-                <Col xs="6" sm="4" md="4">
+    const toggle = (tab) => {
+        if (activeTab !== tab) {
+            setActiveTab(tab);
+        }
+    };
+
+    return (
+        <div className="main-section-tab">
+                <Row>
+                <Col xs="6" sm="4" md="4" className="section-cols section-cols-scroll">
                     <Nav tabs vertical pills>
-                        <NavItem>
-                            <NavLink
-                                className={classnames({active: this.state.activeTab === '1'})}
-                                onClick={() => {
-                                    this.toggle('1');
-                                }}
-                            >
-                                Tab1
-                            </NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink
-                                className={classnames({active: this.state.activeTab === '2'})}
-                                onClick={() => {
-                                    this.toggle('2');
-                                }}
-                            >
-                                Moar Tabs
-                            </NavLink>
-                        </NavItem>
+                        {(
+                            allMessages.map((item, index) => (
+                                <NavItem>
+                                    <Button
+                                        className={classnames('toggleButton', {active: activeTab === index.toString()})}
+                                        onClick={() => {
+                                            toggle(index.toString());
+                                        }}
+                                    >
+                                        <Row className="section-sub-row">
+                                            <Col lg="3" className="section-sub-col-left">
+                                                <Icon component={() => (<img src="/telegram.svg" alt="telegram" />)} />
+                                                <p className="section-sub-p">{moment(item.date).format('HH:mm')}</p>
+                                                <p className="section-sub-p">{moment(item.date).format('DD-MM-YYYY')}</p>
+                                            </Col>
+                                            <Col lg="9" className="section-sub-col-right">
+                                                <p className="section-sub-p text-black">{item.message}</p>
+                                            </Col>
+                                        </Row>
+                                    </Button>
+                                </NavItem>
+                            ))
+                        )}
                     </Nav>
                 </Col>
-                <Col xs="6" sm="6" md="6">
-                    <TabContent activeTab={this.state.activeTab}>
-                        <TabPane tabId="1">
-                            <h4>Tab 1 Contents</h4>
-                        </TabPane>
-                        <TabPane tabId="2">
-                            <h4>Tab 2 Contents</h4>
-                        </TabPane>
+                <Col xs="6" sm="6" md="6" className="section-cols section-cols-right">
+                    <TabContent activeTab={activeTab}>
+                        {(
+                            allMessages.map((item, index) => (
+                                <TabPane tabId={index.toString()}>
+                                    <div className="section-tab-container">
+                                        <Row>
+                                            <Col lg="1">
+                                                <Icon component={() => (<img src="/telegram.svg" alt="telegram" />)} />
+                                            </Col>
+                                            <Col lg="1">
+                                                <p className="section-sub-p">Text Message</p>
+                                            </Col>
+                                            <Col lg="1"></Col>
+                                            <Col lg="4">
+                                                <p className="section-sub-p">{moment(item.date).format("HH:mm DD-MM-YYYY")}</p>
+                                            </Col>
+                                        </Row>
+                                        <hr className="my-2" style={{ borderColor: '#000', fontSize: "2px", borderTopWidth: '2px' }} />
+                                        <p className="section-sub-p">{item.message}</p>
+                                    </div>
+                                </TabPane>
+                            ))
+                        )}
                     </TabContent>
                 </Col>
             </Row>
-        )
-    }
+            </div>
+    )
 }
 
 export default SectionTab;

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { auth } from 'firebase/app';
+import { fetchAllMessage, postMessage } from  './../loader/db/db';
 import { getToken } from './helpers';
 
 const instance = axios.create({
@@ -26,6 +27,8 @@ instance.interceptors.request.use(
 
 const sendMessage = (options) => instance.post('/telegram', options);
 const fetchMessages = (options) => instance.get('/messages', options);
+const fetchAllMessages = () => fetchAllMessage();
+const postNewMessage = (options) => postMessage(options);
 const fetchUserInfo = (options) => instance.get('/me', options);
 const login = (token) => auth().signInWithCustomToken(token);
 const getIdTokenResult = () => auth().currentUser.getIdTokenResult();
@@ -38,6 +41,8 @@ const getMe = () => instance.get('/me');
 export default {
   sendMessage,
   fetchMessages,
+  fetchAllMessages,
+  postNewMessage,
   fetchUserInfo,
   login,
   logout,
