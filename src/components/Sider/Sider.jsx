@@ -13,7 +13,9 @@ const SiderNavigation = () => {
   return (
     <Sider>
       <div style={{ width: '100px', margin: '20px 0px 20px 0px', transform: `translate(${50}%` }}>
-        <img className="h-full w-full border border-solid border-white rounded-sm cursor-pointer" src="/flag-cambodia.jpg" alt="Khmer" />
+          <Link to="/">
+            <img className="h-full w-full border border-solid border-white rounded-sm cursor-pointer" src="/flag-cambodia.jpg" alt="Khmer" />
+          </Link>
       </div>
       <Menu
         theme="dark"
