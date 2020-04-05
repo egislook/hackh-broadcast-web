@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5375ca081fa1d1537a0ca0c32450f619",
+    "revision": "eeaee4c5df25bd7accc5034dbbc0553e",
     "url": "/hackh-broadcast-web/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/hackh-broadcast-web/static/css/2.7a4b6f34.chunk.css"
   },
   {
-    "revision": "9e9c871cde0496a8aa31",
+    "revision": "4241e77f078c0d4a6fa3",
     "url": "/hackh-broadcast-web/static/css/main.98fdf1e7.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/hackh-broadcast-web/static/js/2.b2bc704c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "9e9c871cde0496a8aa31",
-    "url": "/hackh-broadcast-web/static/js/main.46563bb6.chunk.js"
+    "revision": "4241e77f078c0d4a6fa3",
+    "url": "/hackh-broadcast-web/static/js/main.dc3fe0c3.chunk.js"
   },
   {
     "revision": "e3e719219442a1d66f2a",
