@@ -72,3 +72,12 @@
 .section-tab-container {
   padding: 10px;
 }
+
+.section-nav-item {
+  max-height: 110px;
+}
+
+.section-sub-scroll {
+  max-height: 595px;
+  overflow-y: scroll;
+}
