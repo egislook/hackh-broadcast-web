@@ -21,7 +21,7 @@ const PrivateRoute = (props) => {
 const App = ({ store }) => {
   const { t } = useTranslation();
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={window.location.pathname || ''}>
       <Helmet>
         <title>{t('app_title')}</title>
       </Helmet>
