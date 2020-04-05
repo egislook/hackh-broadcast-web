@@ -3,9 +3,8 @@ import moment from "moment";
 
 export const fetchAllMessage = async () => {
   const databaseRef = database().ref('telegram');
-  const messageRef = databaseRef.child('messages');
   return new Promise((resolve, reject) => {
-    messageRef.on('value', (snapshot) => {
+    databaseRef.on('value', (snapshot) => {
       const data = snapshot.val() || {};
       const messages = [];
       snapshot.forEach(child => {
@@ -19,9 +18,11 @@ export const fetchAllMessage = async () => {
 
 export const postMessage = async (options) => {
   const databaseRef = database().ref('telegram');
-  const messageRef = databaseRef.child('messages');
-  messageRef.push({
+  const result = await databaseRef.push({
     message: options.message,
     date: moment().format(),
-  })
+  }).then((snap) => {
+    return snap.key;
+  });
+  return result;
 };
