@@ -18,6 +18,6 @@ export default {
     'Something went wrong': 'ប្រព័ន្ធផ្សព្វផ្សាយ',
     'Are you sure you want to send': 'ប្រព័ន្ធផ្សព្វផ្សាយ',
     'send message': 'ផ្ញើសារទៅកាន់​ {{provider}}',
-    'text message': 'សារ',
+    text_message: 'សារ',
   },
 };

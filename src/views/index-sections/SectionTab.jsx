@@ -96,7 +96,7 @@ const SectionTab = () => {
                         <Col lg="1">
                           <p className="section-sub-p" />
                         </Col>
-                        <Col lg="2">{localization.t('text message')}</Col>
+                        <Col lg="2">{localization.t('text_message')}</Col>
                         <Col lg="4">
                           <p className="section-sub-p">{moment(item.date).format('HH:mm DD-MM-YYYY')}</p>
                         </Col>
