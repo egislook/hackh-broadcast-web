@@ -1,10 +1,10 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { TabContent, TabPane, Nav, NavItem, Button, Row, Col } from 'reactstrap';
 import classnames from 'classnames';
-import moment from 'moment'
+import moment from 'moment';
 import './SectionTab.scss';
 import Icon from '@ant-design/icons';
-import { Modal } from 'antd';
+import { Modal, Spin } from 'antd';
 import API from '../../utils/api';
 import localization from '../../localization';
 
@@ -49,11 +49,16 @@ const SectionTab = () => {
   };
 
   return (
-    <div className="main-section-tab">
-      <Row>
-        <Col xs="6" sm="4" md="4" className="section-cols section-cols-scroll">
-          <Nav tabs vertical pills>
-            {(
+    isLoading ? (
+      <div className="section-spinner">
+        <Spin />
+      </div>
+    ) : (
+      <div className="main-section-tab">
+        <Row>
+          <Col xs="6" sm="4" md="4" className="section-cols section-cols-scroll">
+            <Nav tabs vertical pills>
+              {(
                 allMessages.map((item, index) => (
                   <NavItem className="section-nav-item" key={index.toString}>
                     <Button
@@ -76,11 +81,11 @@ const SectionTab = () => {
                   </NavItem>
                 ))
             )}
-          </Nav>
-        </Col>
-        <Col xs="6" sm="6" md="6" className="section-cols section-cols-right">
-          <TabContent activeTab={activeTab}>
-            {(
+            </Nav>
+          </Col>
+          <Col xs="6" sm="6" md="6" className="section-cols section-cols-right">
+            <TabContent activeTab={activeTab}>
+              {(
                 allMessages.map((item, index) => (
                   <TabPane tabId={index.toString()} key={index.toString()}>
                     <div className="section-tab-container">
@@ -102,10 +107,11 @@ const SectionTab = () => {
                   </TabPane>
                 ))
             )}
-          </TabContent>
-        </Col>
-      </Row>
-    </div>
+            </TabContent>
+          </Col>
+        </Row>
+      </div>
+    )
   );
 };
 
