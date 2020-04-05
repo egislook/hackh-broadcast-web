@@ -81,3 +81,15 @@
   max-height: 595px;
   overflow-y: scroll;
 }
+
+.section-spinner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 4px;
+  margin: 20px 0;
+  padding: 30px 50px;
+  background-color: #FFF;
+}

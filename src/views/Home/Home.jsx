@@ -89,7 +89,7 @@ const Home = () => {
     }
     setIsLoading(true);
     try {
-      const messageResult = await postMessage({message});
+      const messageResult = await postMessage({ message });
       const result = await API.sendMessage({ messageId: messageResult });
       console.log('save data for history?', result);
       console.log('or trigger fetch messages');
@@ -107,7 +107,7 @@ const Home = () => {
 
   const postMessage = useCallback(async (object) => {
     try {
-      const data = await API.postNewMessage({message: object.message});
+      const data = await API.postNewMessage({ message: object.message });
       setIsLoading(false);
       setError(null);
       return data;
