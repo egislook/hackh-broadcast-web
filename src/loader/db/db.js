@@ -2,7 +2,7 @@ import { database } from 'firebase/app';
 import moment from "moment";
 
 export const fetchAllMessage = async () => {
-  const databaseRef = database().ref('telegram');
+  const databaseRef = database().ref('telegram').limitToLast(50);
   return new Promise((resolve, reject) => {
     databaseRef.on('value', (snapshot) => {
       const data = snapshot.val() || {};
@@ -11,7 +11,7 @@ export const fetchAllMessage = async () => {
         messages.push(child.val())
       });
       // it should trigger every time there are some changes happening
-      return resolve(messages);
+      return resolve(messages.reverse());
     });
   });
 };
