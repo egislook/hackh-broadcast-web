@@ -32,6 +32,7 @@ const SectionTab = () => {
     const fetchData = useCallback(async () => {
         try {
             const data = await API.fetchAllMessages();
+            console.log('data', data);
             setIsLoading(false);
             setError(null);
             setAllMessage(data);
@@ -70,7 +71,7 @@ const SectionTab = () => {
                                                 <p className="section-sub-p">{moment(item.date).format('DD-MM-YYYY')}</p>
                                             </Col>
                                             <Col lg="9" className="section-sub-col-right">
-                                                <p className="section-sub-p text-black">{item.message}</p>
+                                                <p className="section-sub-p section-sub-p-overflow text-black">{item.message}</p>
                                             </Col>
                                         </Row>
                                     </Button>
@@ -86,8 +87,8 @@ const SectionTab = () => {
                                 <TabPane tabId={index.toString()}>
                                     <div className="section-tab-container">
                                         <Row>
-                                            <Col lg="1">
-                                                <Icon component={() => (<img src="/telegram.svg" alt="telegram" />)} />
+                                            <Col lg="2">
+                                                <Icon style={{ fontSize: '10' }} component={() => (<img src="/telegram.svg" alt="telegram" />)} />
                                             </Col>
                                             <Col lg="1">
                                                 <p className="section-sub-p">Text Message</p>
