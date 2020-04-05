@@ -90,8 +90,7 @@ const Home = () => {
     setIsLoading(true);
     try {
       const messageResult = await postMessage({message});
-      const result = await API.sendMessage({ text: message });
-      // const result = await API.sendMessage({ messageId: messageResult });
+      const result = await API.sendMessage({ messageId: messageResult });
       console.log('save data for history?', result);
       console.log('or trigger fetch messages');
 
