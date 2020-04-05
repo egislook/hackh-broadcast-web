@@ -24,7 +24,7 @@ instance.interceptors.request.use(
   }
 );
 
-
+const sendMessageOnMessenger = (options) => instance.post('/messenger', options);
 const sendMessage = (options) => instance.post('/telegram', options);
 const fetchMessages = (options) => instance.get('/messages', options);
 const fetchAllMessages = () => fetchAllMessage();
@@ -39,6 +39,7 @@ const authenticateOtp = (phone, code) => instance.post('/auth', { phone, code })
 const getMe = () => instance.get('/me');
 
 export default {
+  sendMessageOnMessenger,
   sendMessage,
   fetchMessages,
   fetchAllMessages,

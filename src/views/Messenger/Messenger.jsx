@@ -34,8 +34,8 @@ const info = (sendMessage, cancelSend) => {
   });
 };
 
-const Home = () => {
-  const messageProvider = 'telegram';
+const Messenger = () => {
+  const messageProvider = 'messenger';
 
   const [message, setMessage] = useState('');
   const [, setError] = useState(null);
@@ -89,8 +89,9 @@ const Home = () => {
     }
     setIsLoading(true);
     try {
-      const messageResult = await postMessage({ message });
-      const result = await API.sendMessage({ messageId: messageResult });
+      const messageId = await postMessage({ message });
+      const result = await API.sendMessageOnMessenger({ messageId });
+      // const result = await API.sendMessage({ messageId: messageResult });
       console.log('save data for history?', result);
       console.log('or trigger fetch messages');
 
@@ -153,4 +154,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Messenger;

@@ -33,6 +33,7 @@ const MessageForm = ({ messenger, onMessageChange, message = '', onSend, onCance
       </div>
       <div className="textarea-container flex-grow h-auto ">
         <TextArea
+          autoSize
           className="h-full w-full  p-4 border-2 border-solid border-blue-dark rounded-md"
           style={{ resize: 'none' }}
           value={message}
