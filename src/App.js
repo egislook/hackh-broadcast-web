@@ -21,7 +21,7 @@ const PrivateRoute = (props) => {
 const App = ({ store }) => {
   const { t } = useTranslation();
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter>
       <Helmet>
         <title>{t('app_title')}</title>
       </Helmet>
