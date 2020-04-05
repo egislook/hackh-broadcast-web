@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Button, InputNumber, Layout, Card, Form, Alert, Modal } from 'antd';
+
+
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { withTranslation } from 'react-i18next';
@@ -33,6 +35,7 @@ class Login extends Component {
     this.authenticateOtp = this.authenticateOtp.bind(this);
     this.handleOtpChange = this.handleOtpChange.bind(this);
     this.validatePhone = this.validatePhone.bind(this);
+    this.changePhone = this.changePhone.bind(this);
   }
 
   async requestOtp() {
@@ -105,6 +108,13 @@ class Login extends Component {
     });
   }
 
+  changePhone() {
+    this.setState({
+      phone: '',
+      codeSent: false,
+    });
+  }
+
 
   render() {
     const { phone, isLoading, code, error, phoneError, codeSent } = this.state;
@@ -119,6 +129,7 @@ class Login extends Component {
                       <Card
                         style={{ width: 500, minHeight: '38vh' }}
                         className="flex flex-col"
+                        id="phone-login"
                       >
                         <h1 className="py-1 pb-4 text-xl" style={{ fontSize: '1.825em', fontWeight: 'bold' }}>{t('app_title')}</h1>
                         <h3 className="py-1 pb-6 text-lg" style={{ fontSize: '1.825em', fontWeight: 'bold' }}>{t('login_with_phone')}</h3>
@@ -159,6 +170,7 @@ class Login extends Component {
                       <Card
                         style={{ width: 500, minHeight: '38vh' }}
                         className="flex flex-col"
+                        id="otp-login"
                       >
                         <h1 className="py-1 pb-4 text-xl" style={{ fontSize: '1.825em', fontWeight: 'bold' }}>{t('app_title')}</h1>
                         <h3 className="py-1 pb-6 text-lg" style={{ fontSize: '1.825em', fontWeight: 'bold' }}>{t('enter_otp')}</h3>
@@ -176,9 +188,8 @@ class Login extends Component {
                             value={code}
                             onChange={this.handleOtpChange}
                           />
-
                           <Button
-                            className="btn-round my-2 flex flex-grow items-center justify-center"
+                            className="btn-round ml-1 my-2 flex flex-grow items-center justify-center"
                             type="button"
                             onClick={this.authenticateOtp}
                             loading={isLoading}
@@ -189,7 +200,24 @@ class Login extends Component {
                                         error && <Alert className="my-2" message={error.message} type="error" showIcon />
                                     }
                         </Form>
-
+                        <div className="trobleshoot-links flex flex-col justify-center items-center py-8">
+                          <p>{t('not_recieve_code')}</p>
+                          <div className="links-group flex flex-row items-center justify-center">
+                            <Button
+                              type="link"
+                              onClick={this.changePhone}
+                            >
+                              {t('change_phone')}
+                            </Button>
+                            <span>{t('or')}</span>
+                            <Button
+                              type="link"
+                              onClick={this.requestOtp}
+                            >
+                              {t('resend_otp')}
+                            </Button>
+                          </div>
+                        </div>
                       </Card>
                     )
                 }
